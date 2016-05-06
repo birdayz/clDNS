@@ -32,7 +32,7 @@ std::unique_ptr<DNS_REQUEST> NameLookupProcessor::process(std::unique_ptr<DNS_RE
         const ResourceRecordSet *aRecord = z->findRecord(request->domain, RRType::A);
         if (aRecord != nullptr) {
             for (size_t i = 0; i < aRecord->size(); i++) {
-                request->answers.push_back(aRecord->get(0)); // FIXME teuer
+                request->answers.push_back(aRecord->get(0));
             }
             request->answers.push_back(aRecord->getRRSigRecord());
 

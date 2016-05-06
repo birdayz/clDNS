@@ -41,7 +41,7 @@ void HashWorker::doWork() {
                 auto finishedDNSRequest = nsec3Processor.finishProcessing(
                         std::move((*requestsTuple.first)[i].request),
                         *((*requestsTuple.first)[i].zone),
-                        hash); // TODO mapping auf req safe?
+                        hash);
                 udpSender->writeResponse(std::move(finishedDNSRequest));
             }
 

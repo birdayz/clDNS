@@ -82,8 +82,6 @@ int UDPReceiver::parseName(unsigned char *namePtr, unsigned char *outputName) {
 
 UDPReceiver::UDPReceiver(std::shared_ptr<UDPSocket> socket, NameLookupProcessor &nl) :
         sock(socket), nl(nl), mainThreadExitFlag(false), mutex(), workerFinished(false), signal() {
-    //std::thread tr(&UDPReceiver::mainLoop, this);
-    //tr.detach();
 }
 
 void UDPReceiver::stop() {
@@ -91,15 +89,6 @@ void UDPReceiver::stop() {
 }
 
 UDPReceiver::~UDPReceiver() {
-    sock->stop(); // call shutdown on socket so our blocking recvfrom gets interrupted
-    /* this->mainThreadExitFlag = true;
-
-     std::cout << "Wait for main loop of receiver to finish/shut down" << std::endl;
-
-     std::unique_lock<std::mutex> lock(this->mutex);
-     while (!this->workerFinished) // avoid spurious wake-ups
-         this->signal.wait(lock);
-         */
-    std::cout << "Receiver closed" << std::endl;
+    sock->stop();
 }
 

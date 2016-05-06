@@ -38,20 +38,15 @@ UDPSocket::UDPSocket(const int port) {
         std::cout << "Could not bind to port " << port << strerror(errno) << std::endl;
     } else {
         std::cout << "Bound successfully to port " << port << std::endl;
-        // Todo throw
     }
-
-    std::cout << "Listening on UDP port" << port << std::endl;
 }
 
 UDPSocket::~UDPSocket() {
     int closeResult = close(this->socketId);
-    std::cout << "Closed socket, result is " << closeResult << std::endl;
 }
 
 void UDPSocket::stop() const {
     int shutdownResult = shutdown(this->socketId, SHUT_RDWR);
-    std::cout << "Shutdown on socket called, result is " << shutdownResult << std::endl;
 }
 
 ssize_t UDPSocket::receive(char *buffer, size_t bufferSize,
