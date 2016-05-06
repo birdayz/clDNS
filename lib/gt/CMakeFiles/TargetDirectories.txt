@@ -1,0 +1,2 @@
+/home/birdy/projects/GPUDNS_CMAKE/googleTest/googletest/CMakeFiles/gtest.dir
+/home/birdy/projects/GPUDNS_CMAKE/googleTest/googletest/CMakeFiles/gtest_main.dir

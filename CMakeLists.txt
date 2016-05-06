@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 3.0)
+project(gpudns)
+
+set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build/binaries)
+set(GTEST_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/lib/googletest/googletest/include)
+set(GLOBAL_LIB_DIR ${CMAKE_SOURCE_DIR}/lib)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
+set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
+
+set(PROJECT_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
+
+include_directories("${PROJECT_INCLUDE_DIR}")
+include_directories("${PROJECT_SOURCE_DIR}")
+
+enable_testing()
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -Wall -O2 -g")
+set(CMAKE_AR "gcc-ar")
+set(CMAKE_RANLIB "gcc-ranlib")
+#set(CMAKE_CXX_ARCHIVE_CREATE "<CMAKE_AR> cq <TARGET> <LINK_FLAGS> <OBJECTS>")
+#set(CMAKE_STATIC_LINKER_FLAGS "${CMAKE_STATIC_LINKER_FLAGS} -flto")
+#add_definitions(-flto)
+add_subdirectory(server)
+add_subdirectory(serverExecutable)
+add_subdirectory(gpu)
+add_subdirectory(lib/googletest/googletest)
+add_subdirectory(dispatcherTester)

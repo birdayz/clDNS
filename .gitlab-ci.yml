@@ -1,0 +1,15 @@
+stages:
+  - build
+
+stages:
+  - build
+  - test
+
+build-project:
+  stage: build
+  script:
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make -j2
+    - ctest -V
