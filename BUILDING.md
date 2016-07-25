@@ -1,9 +1,10 @@
-sudo apt-get install opencl-headers
+# Ubuntu 16.04
 
-sudo apt-get install libldns-dev
+sudo apt install cmake
+sudo apt install opencl-headers
+sudo apt install libldns-dev
 
 ./build.sh
-
 
 run tests with:
 
